@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:20px 0;background:#F8F4F0;font-family:Arial,Helvetica,sans-serif;">
+<div style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #DDD5CC;border-radius:4px;overflow:hidden;">
+
+  <div style="background:#C0392B;padding:24px 32px;text-align:center;">
+    <h1 style="color:#fff;font-size:18px;margin:0;text-transform:uppercase;letter-spacing:1px;">⚠ Cuota vencida</h1>
+    <p style="color:rgba(255,255,255,0.8);font-size:12px;margin:4px 0 0;letter-spacing:1px;text-transform:uppercase;">{{ store_name|default:'Tu Tienda' }}</p>
+  </div>
+
+  <div style="padding:28px 32px;">
+    <p style="color:#231A10;font-size:15px;margin:0 0 16px;">Hola <strong>{{ nombre_cliente }}</strong>,</p>
+    <p style="color:#555;font-size:14px;line-height:1.6;margin:0 0 20px;">
+      Tienes una cuota vencida en tu plan de crédito. Te recordamos los detalles:
+    </p>
+
+    <div style="border:1px solid #DDD5CC;border-radius:4px;overflow:hidden;font-size:13px;margin:0 0 20px;">
+      <table style="width:100%;border-collapse:collapse;">
+        <tr style="border-bottom:1px solid #EDE7E0;">
+          <td style="padding:10px 16px;color:#7A6358;">Factura</td>
+          <td style="padding:10px 16px;color:#231A10;font-weight:bold;">#{{ factura_id }}</td>
+        </tr>
+        <tr style="border-bottom:1px solid #EDE7E0;">
+          <td style="padding:10px 16px;color:#7A6358;">Cuota</td>
+          <td style="padding:10px 16px;color:#231A10;font-weight:bold;">{{ cuota_numero }}</td>
+        </tr>
+        <tr style="border-bottom:1px solid #EDE7E0;">
+          <td style="padding:10px 16px;color:#7A6358;">Fecha de vencimiento</td>
+          <td style="padding:10px 16px;color:#C0392B;font-weight:bold;">{{ fecha_vencimiento }}</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 16px;color:#7A6358;">Valor pendiente</td>
+          <td style="padding:10px 16px;color:#231A10;font-weight:bold;font-size:15px;">${{ valor }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <p style="color:#555;font-size:13px;line-height:1.6;margin:0;">
+      Por favor, contáctanos para regularizar tu pago y evitar cargos adicionales.
+    </p>
+  </div>
+
+  <div style="background:#231A10;padding:16px 32px;text-align:center;">
+    <p style="color:rgba(255,255,255,0.6);font-size:11px;margin:0;">© {{ store_name|default:'Tu Tienda' }}</p>
+  </div>
+</div>
+</body>
+</html>

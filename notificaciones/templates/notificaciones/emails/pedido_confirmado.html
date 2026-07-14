@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:20px 0;background:#F8F4F0;font-family:Arial,Helvetica,sans-serif;">
+<div style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #DDD5CC;border-radius:4px;overflow:hidden;">
+
+  <div style="background:{{ color_primario|default:'#B5441B' }};padding:28px 32px;text-align:center;">
+    <h1 style="color:#fff;font-size:20px;margin:0;letter-spacing:2px;text-transform:uppercase;">{{ store_name|default:'Tu Tienda' }}</h1>
+    <p style="color:rgba(255,255,255,0.8);font-size:11px;margin:6px 0 0;letter-spacing:2px;text-transform:uppercase;">PEDIDO CONFIRMADO</p>
+  </div>
+
+  <div style="background:#231A10;padding:8px 32px;text-align:center;">
+    <p style="color:#F8F4F0;font-size:11px;letter-spacing:2px;margin:0;text-transform:uppercase;">{{ fecha|default:'' }}</p>
+  </div>
+
+  <div style="padding:24px 32px 16px;border-bottom:1px solid #EDE7E0;">
+    <h2 style="font-size:17px;color:#231A10;margin:0 0 4px;">{{ nombre_cliente|upper }}</h2>
+    <p style="color:#7A6358;font-size:13px;margin:2px 0;">Pedido #{{ pedido_id }}</p>
+  </div>
+
+  <div style="margin:16px 32px;border:1px solid #DDD5CC;border-radius:4px;overflow:hidden;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <tr style="background:#F1EEE9;">
+        <th style="padding:8px 12px;text-align:left;color:#7A6358;font-size:10px;text-transform:uppercase;letter-spacing:1px;">Producto</th>
+        <th style="padding:8px 12px;text-align:center;color:#7A6358;font-size:10px;text-transform:uppercase;letter-spacing:1px;">Cant.</th>
+        <th style="padding:8px 12px;text-align:right;color:#7A6358;font-size:10px;text-transform:uppercase;letter-spacing:1px;">Subtotal</th>
+      </tr>
+      {% for item in items %}
+      <tr style="border-bottom:1px solid #F1EEE9;">
+        <td style="padding:8px 12px;color:#231A10;">{{ item.nombre }}</td>
+        <td style="padding:8px 12px;text-align:center;color:#231A10;">{{ item.cantidad }}</td>
+        <td style="padding:8px 12px;text-align:right;color:#231A10;">${{ item.subtotal }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;border-top:2px solid {{ color_primario|default:'#B5441B' }};">
+      <tr>
+        <td style="padding:10px 12px;text-align:right;font-weight:bold;font-size:15px;color:{{ color_primario|default:'#B5441B' }};">TOTAL</td>
+        <td style="padding:10px 12px;text-align:right;font-weight:bold;font-size:15px;color:{{ color_primario|default:'#B5441B' }};width:110px;">${{ total }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="padding:0 32px 24px;">
+    <p style="color:#555;font-size:13px;line-height:1.6;margin:0;">Gracias por tu compra en <strong>{{ store_name|default:'nuestra tienda' }}</strong>. Pronto recibirás tu pedido.</p>
+  </div>
+
+  <div style="background:#231A10;padding:16px 32px;text-align:center;">
+    <p style="color:rgba(255,255,255,0.6);font-size:11px;margin:0;">© {{ store_name|default:'Tu Tienda' }}</p>
+  </div>
+</div>
+</body>
+</html>

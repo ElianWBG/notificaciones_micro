@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:20px 0;background:#F8F4F0;font-family:Arial,Helvetica,sans-serif;">
+<div style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #DDD5CC;border-radius:4px;overflow:hidden;">
+
+  <div style="background:{{ color_primario|default:'#B5441B' }};padding:28px 32px;text-align:center;">
+    <h1 style="color:#fff;font-size:22px;margin:0;letter-spacing:2px;text-transform:uppercase;">{{ store_name|default:'Tu Tienda' }}</h1>
+  </div>
+
+  <div style="padding:28px 32px;">
+    <h2 style="color:#231A10;font-size:18px;margin:0 0 16px;">¡Bienvenido/a, {{ nombre_cliente }}!</h2>
+    <p style="color:#555;font-size:14px;line-height:1.6;margin:0 0 12px;">
+      Tu cuenta ha sido creada con éxito. Ya puedes iniciar sesión y explorar nuestro catálogo.
+    </p>
+    {% if login_url %}
+    <div style="text-align:center;margin:24px 0;">
+      <a href="{{ login_url }}"
+         style="background:{{ color_primario|default:'#B5441B' }};color:#fff;padding:12px 28px;
+                text-decoration:none;border-radius:4px;font-weight:bold;font-size:14px;display:inline-block;">
+        INICIAR SESIÓN
+      </a>
+    </div>
+    {% endif %}
+    <p style="color:#555;font-size:13px;line-height:1.6;margin:0;">
+      Si tienes preguntas, responde a este correo y te ayudaremos.
+    </p>
+  </div>
+
+  <div style="background:#231A10;padding:16px 32px;text-align:center;">
+    <p style="color:rgba(255,255,255,0.6);font-size:11px;margin:0;">© {{ store_name|default:'Tu Tienda' }}</p>
+  </div>
+</div>
+</body>
+</html>

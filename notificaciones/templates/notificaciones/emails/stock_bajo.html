@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:20px 0;background:#F8F4F0;font-family:Arial,Helvetica,sans-serif;">
+<div style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #DDD5CC;border-radius:4px;overflow:hidden;">
+
+  <div style="background:#E67E22;padding:24px 32px;text-align:center;">
+    <h1 style="color:#fff;font-size:18px;margin:0;text-transform:uppercase;letter-spacing:1px;">⚠ Alerta de stock bajo</h1>
+    <p style="color:rgba(255,255,255,0.8);font-size:12px;margin:4px 0 0;letter-spacing:1px;text-transform:uppercase;">{{ store_name|default:'Panel de inventario' }}</p>
+  </div>
+
+  <div style="padding:28px 32px;">
+    <div style="border:1px solid #F0D9C0;background:#FEF9F4;border-radius:4px;padding:16px 20px;margin:0 0 20px;">
+      <p style="color:#7A4500;font-size:15px;font-weight:bold;margin:0 0 4px;">{{ nombre_producto }}</p>
+      <p style="color:#E67E22;font-size:22px;font-weight:bold;margin:0;">{{ stock }} unidades disponibles</p>
+    </div>
+    <p style="color:#555;font-size:14px;line-height:1.6;margin:0 0 20px;">
+      El stock de este producto ha caído por debajo del umbral mínimo ({{ threshold|default:'5' }} unidades).
+      Se recomienda realizar un pedido de reabastecimiento pronto.
+    </p>
+    {% if panel_url %}
+    <div style="text-align:center;">
+      <a href="{{ panel_url }}"
+         style="background:#231A10;color:#fff;padding:12px 28px;text-decoration:none;
+                border-radius:4px;font-weight:bold;font-size:13px;display:inline-block;">
+        VER PRODUCTO EN EL PANEL
+      </a>
+    </div>
+    {% endif %}
+  </div>
+
+  <div style="background:#231A10;padding:16px 32px;text-align:center;">
+    <p style="color:rgba(255,255,255,0.6);font-size:11px;margin:0;">© {{ store_name|default:'Tu Tienda' }}</p>
+  </div>
+</div>
+</body>
+</html>

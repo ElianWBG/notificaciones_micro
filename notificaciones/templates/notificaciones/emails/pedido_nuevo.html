@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:20px 0;background:#F8F4F0;font-family:Arial,Helvetica,sans-serif;">
+<div style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #DDD5CC;border-radius:4px;overflow:hidden;">
+
+  <div style="background:#231A10;padding:24px 32px;">
+    <h1 style="color:#fff;font-size:16px;margin:0;text-transform:uppercase;letter-spacing:1px;">🛒 Nueva venta recibida</h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:12px;margin:4px 0 0;">{{ store_name|default:'Panel de ventas' }}</p>
+  </div>
+
+  <div style="padding:24px 32px;border-bottom:1px solid #EDE7E0;">
+    <h2 style="color:#231A10;font-size:20px;margin:0 0 4px;">Pedido #{{ pedido_id }}</h2>
+    <p style="color:#7A6358;font-size:13px;margin:0;">{{ fecha|default:'' }}</p>
+  </div>
+
+  <div style="padding:20px 32px;border-bottom:1px solid #EDE7E0;">
+    <p style="font-size:11px;color:#7A6358;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;">CLIENTE</p>
+    <p style="color:#231A10;font-size:14px;font-weight:bold;margin:0 0 4px;">{{ nombre_cliente }}</p>
+    {% if email_cliente %}<p style="color:#555;font-size:13px;margin:2px 0;">{{ email_cliente }}</p>{% endif %}
+    {% if telefono_cliente %}<p style="color:#555;font-size:13px;margin:2px 0;">{{ telefono_cliente }}</p>{% endif %}
+  </div>
+
+  <div style="padding:20px 32px;border-bottom:1px solid #EDE7E0;">
+    <p style="font-size:11px;color:#7A6358;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;">PRODUCTOS</p>
+    <pre style="font-family:Arial,sans-serif;font-size:13px;color:#231A10;margin:0;white-space:pre-wrap;">{{ items_text }}</pre>
+  </div>
+
+  <div style="padding:20px 32px;border-bottom:1px solid #EDE7E0;background:#F8F4F0;">
+    <span style="font-size:14px;color:#231A10;font-weight:bold;">Total: ${{ total }}</span>
+  </div>
+
+  {% if panel_url %}
+  <div style="padding:20px 32px;text-align:center;">
+    <a href="{{ panel_url }}"
+       style="background:#231A10;color:#fff;padding:12px 28px;text-decoration:none;
+              border-radius:4px;font-weight:bold;font-size:13px;display:inline-block;letter-spacing:1px;">
+      VER EN EL PANEL
+    </a>
+  </div>
+  {% endif %}
+
+  <div style="background:#231A10;padding:16px 32px;text-align:center;">
+    <p style="color:rgba(255,255,255,0.6);font-size:11px;margin:0;">© {{ store_name|default:'Tu Tienda' }}</p>
+  </div>
+</div>
+</body>
+</html>
