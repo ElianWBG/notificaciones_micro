@@ -29,6 +29,10 @@ class Cliente(models.Model):
         super().save(*args, **kwargs)
 
     @property
+    def is_authenticated(self):
+        return self.activo
+
+    @property
     def tiene_whatsapp(self):
         return bool(self.whatsapp_token and self.whatsapp_phone_id)
 
